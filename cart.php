@@ -127,15 +127,15 @@
         <?php
             if(isset($_SESSION['login'])){ ?>
             <div class="container" style="text-align:center; margin-top:30px;">
-                <form action="" style="padding: 20px;">
+                <form action="test2.php" method="post" style="padding: 20px;">
                 <label for="" style="width: 700px;" class="mt-3">Họ tên Khách Hàng:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['fullname']);?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Họ tên khách hàng">
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_name" placeholder="Họ tên khách hàng" value="<?php echo processNameUser($_SESSION['login'][0]['fullname']);?>">
                 <br>
                 <label for="" style="width: 700px;" class="mt-3">Số điện thoại:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['numberphone']) ?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Nhập số điện thoại">
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_numberphone" placeholder="Nhập số điện thoại" value="<?php echo processNameUser($_SESSION['login'][0]['numberphone']);?>">
                 <br>
                 <label for="" style="width: 700px;" class="mt-3">Địa chỉ: <span class="text-danger"><?php echo processNameUser($_SESSION['login'][0]['address']) ?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Địa chỉ"><br>
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_address" placeholder="Địa chỉ" value="<?php echo processNameUser($_SESSION['login'][0]['address']);?>"><br>
                     <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
                     <span class="text-danger">
                         <?php 
@@ -145,7 +145,7 @@
                         ?>
                     </span>
                     <br>
-                    <input type="submit" value="Đặt hàng ngay" class="btn btn-success">
+                    <input type="submit" value="Đặt hàng ngay" class="btn btn-success" name="insert_database">
                 </form>
             </div>
             <div style="margin-top:158px;"></div>
@@ -155,15 +155,15 @@
             <a href="login.php" class="btn btn-warning">Đăng nhập tại đây</a>
         </div>
         <div class="container" style="text-align:center; margin-top:20px;">
-            <form action="" style="padding: 20px;">
+            <form action="test2.php" method="post" style="padding: 20px;">
                 <label for="" style="width: 150px;" class="mt-3">Họ tên:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="qty" placeholder="Họ tên khách hàng">
+                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_name" placeholder="Họ tên khách hàng">
                 <br>
                 <label for="" style="width: 150px;" class="mt-3">Số điện thoại:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="qty" placeholder="Nhập số điện thoại">
+                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_numberphone" placeholder="Nhập số điện thoại">
                 <br>
                 <label for="" style="width: 150px;" class="mt-3">Địa chỉ:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="qty" placeholder="Địa chỉ">
+                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_address" placeholder="Địa chỉ">
                 <br>
                 <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
                 <span class="text-danger">
@@ -174,7 +174,7 @@
                     ?>
                 </span>
                 <br>
-                <input type="submit" value="Đặt hàng ngay" class="btn btn-success">
+                <input type="submit" value="Đặt hàng ngay" class="btn btn-success" name="insert_database">
                 </form>
             </div>
        <?php } ?>
