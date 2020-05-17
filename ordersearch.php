@@ -23,7 +23,7 @@
 
 	<?php include 'header.php' ?>	
     <div class="container" style="margin-top:100px; height:400px; ">
-        <form action="odersearch.php" method="get">
+        <form action="ordersearch.php" method="get">
             <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="sdt" placeholder="Nhập số điện thoại">
             <input type="submit" class="btn btn-success mb-1" value="Kiểm tra" name="checknumberphone">
         </form>

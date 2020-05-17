@@ -11,32 +11,44 @@
     if(isset($_POST['login'])){
         if(isset($_SESSION['login'])){
             header("Location: ./index.php");
-            print_r($_SESSION['login']);
         }else{
             session_start();
             $username = $_POST['username'];
             $passwd = $_POST['passwd'];
-            $queryUser = "select * from login where username='$username' and passwd='$passwd'";
+            $queryUser = "select * from khachhang where username='$username' and passwd='$passwd'";
+            $queryAdmin = "select * from nhanvien where username='$username' and passwd='$passwd'";
             $result = mysqli_query($conn,$queryUser);
+            $resultAdmin = mysqli_query($conn,$queryAdmin);
             if(mysqli_num_rows($result) > 0){
                 // echo '<script>alert("Thanh Cong"); </script>';
                 // $count = count($_SESSION['login']);
                 $row = mysqli_fetch_assoc($result);
                 $item_arr = array(
-                    'id_user' => "'".$row['id']."'",
+                    'id_user' => "'".$row['MSKH']."'",
                     'username' => "'".$row['username']."'",
-                    'fullname' => "'".$row['fullname']."'"
+                    'fullname' => "'".$row['HoTenKH']."'",
+                    'address' => "'".$row['DiaChi']."'",
+                    'numberphone' => "'".$row['SoDienThoai']."'"
                 );
                 $_SESSION['login'][0] = $item_arr;
-                header("Location: ./index.php");
+                header("Location: ./cart.php");
                 // print_r( $_SESSION['login']);
                 // session_destroy();
  
+            }else if(mysqli_num_rows($resultAdmin) > 0){
+                $row = mysqli_fetch_assoc($resultAdmin);
+                $item_arr2 = array(
+                    'id_admin' => "'".$row['MSNV']."'",
+                    'username' => "'".$row['username']."'",
+                    'fullname' => "'".$row['HoTenNV']."'",
+                );
+                $_SESSION['login_admin'][0] = $item_arr2;
+                header("Location: ./admin.php");
             }else{
-             //    header("Location: ./index.php");
                 echo '<script>alert("That Bai"); </script>';
             }
         }
+
     }
 
  ?>

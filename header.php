@@ -17,7 +17,10 @@
 // 		$_SESSION['login'][0] = $item_arr;
 // 		print_r( $_SESSION['login']);
 // }}
-	session_start();
+
+	if(session_id() == '') {
+		session_start();
+	}        
 	if(isset($_SESSION['login'])){
 		$check = 1;
 	}else{
@@ -35,7 +38,7 @@
 
 <div class="container-fuild">
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="index.php">
 				<img src="img/logo.jpg" alt="logo" style="width: 100px; height: 50px;">
 			</a>
 			<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -67,7 +70,7 @@
 						<a class="nav-link" href="#">Liên Hệ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="odersearch.php">Tra đơn hàng</a>
+						<a class="nav-link" href="ordersearch.php">Tra đơn hàng</a>
                     </li>
                     <li class="nav-item">
 						<a class="nav-link" href="cart.php">Giỏ hàng</a>
@@ -81,7 +84,8 @@
 								<button type="submit" name="out" class="btn btn-warning">Đăng Xuất</button>
 							</form>
 						<?php }else{
-								echo '<a href="login.php" class="btn btn-warning">Đăng Nhập</a>';
+								echo '<a href="registeruser.php" class="btn btn-warning mr-2">Đăng Ký</a>
+									 <a href="login.php" class="btn btn-warning">Đăng Nhập</a>';
 							}?>
 
 			</div>

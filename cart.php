@@ -21,13 +21,16 @@
 
     <?php include 'header.php' ?>
         <?php
-            session_start();
             $total = 0;
             // session_destroy();
             if(isset($_POST["add"])){
+
                 if(isset($_SESSION['cart'])){
                     $item_arr_id = array_column($_SESSION['cart'],'product_id');
                     if(!in_array($_POST['id_product'],$item_arr_id)){
+                        if(session_id() == '') {
+                            session_start();
+                        }                        
                         $count = count($_SESSION['cart']);
                         $item_arr = array(
                             'product_id' => $_POST['id_product'],
@@ -49,13 +52,14 @@
                      }
                     
             }else{
-                    $item_arr = array(
-                        'product_id' => $_POST['id_product'],
-                        'cartname' => $_POST['namecart'],
-                        'price_session' => $_POST['price'],
-                        'qty' => $_POST['qty'] 
-                    );
-                    $_SESSION['cart'][0] = $item_arr;
+                        $item_arr = array(
+                            'product_id' => $_POST['id_product'],
+                            'cartname' => $_POST['namecart'],
+                            'price_session' => $_POST['price'],
+                            'qty' => $_POST['qty'] 
+                        );
+                        $_SESSION['cart'][0] = $item_arr;
+                
                 }
             }
 
@@ -119,7 +123,38 @@
         <div class="container" style="text-align:center; margin-top:20px;">
             <a href="index.php#content" class="btn btn-success">Tiếp tục mua hàng</a>
         </div>
-        <div class="container" style="text-align:center; margin-top:80px;">
+
+        <?php
+            if(isset($_SESSION['login'])){ ?>
+            <div class="container" style="text-align:center; margin-top:30px;">
+                <form action="" style="padding: 20px;">
+                <label for="" style="width: 700px;" class="mt-3">Họ tên Khách Hàng:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['fullname']);?></span> </label>
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Họ tên khách hàng">
+                <br>
+                <label for="" style="width: 700px;" class="mt-3">Số điện thoại:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['numberphone']) ?></span> </label>
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Nhập số điện thoại">
+                <br>
+                <label for="" style="width: 700px;" class="mt-3">Địa chỉ: <span class="text-danger"><?php echo processNameUser($_SESSION['login'][0]['address']) ?></span> </label>
+                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="qty" placeholder="Địa chỉ"><br>
+                    <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
+                    <span class="text-danger">
+                        <?php 
+                            if($total!=0){
+                                echo change_type_money((string)$total); 
+                            } 
+                        ?>
+                    </span>
+                    <br>
+                    <input type="submit" value="Đặt hàng ngay" class="btn btn-success">
+                </form>
+            </div>
+            <div style="margin-top:158px;"></div>
+        <?php }else{?>
+            <div class="container" style="text-align:center; margin-top:40px;">
+            <span>Mua nhanh hoặc</span>
+            <a href="login.php" class="btn btn-warning">Đăng nhập tại đây</a>
+        </div>
+        <div class="container" style="text-align:center; margin-top:20px;">
             <form action="" style="padding: 20px;">
                 <label for="" style="width: 150px;" class="mt-3">Họ tên:</label>
                 <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="qty" placeholder="Họ tên khách hàng">
@@ -141,7 +176,10 @@
                 <br>
                 <input type="submit" value="Đặt hàng ngay" class="btn btn-success">
                 </form>
-        </div>
+            </div>
+       <?php } ?>
+        
+
 
         <?php
             // var_dump($_SESSION['cart']);
