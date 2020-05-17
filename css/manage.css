@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:ital,wght@1,800&display=swap');
+
+body{
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 20px;
+}
+
+.collapse li{
+    margin: 0px 60px;
+}
+
+.table{
+    font-size: 15 px;
+    text-align: center;
+}
+
+
+.modal-body label{
+    width: 150px;
+}
