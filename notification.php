@@ -10,7 +10,7 @@
     if(isset($_SESSION['cart']) && isset($_POST['insert_database'])){ // Neu ton tai cart va post insert
         if(isset($_SESSION['login'])){                              // kiểm tra người dùng có đăng nhập
             $MSKH = (int)processNameUser($_SESSION['login'][0]['id_user']);
-            $totalamount = $_POST['totalamount'];
+            $totalamount = $_POST['totalamount']; // Tổng tiền
             $queryOrder = "insert into dathang values(null,'$MSKH',null,NOW(),$totalamount,'Chưa Xác Nhận')";
             $resultOrder = mysqli_query($conn,$queryOrder);
             $idOrderCurrent = mysqli_insert_id($conn); // id vừa mới insert

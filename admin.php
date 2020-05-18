@@ -33,7 +33,7 @@
 <body>
 
     <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
                 <img src="img/logo.jpg" alt="logo" style="width: 100px; height: 50px;">
             </a>
@@ -65,11 +65,38 @@
                             <button type="submit" name="out_admin" class="btn btn-outline-warning text-primary">Đăng Xuất</button>
                         </form>
                     <?php }?>
-            </div>
-
-            </div>
         </nav>
     </div>
 
+    .<div class="container">
+        <table class="table table-striped table-dark    ">
+            <thead>
+                <tr class="text-primary">
+                    <th>Số đơn hàng</th>
+                    <th>Nhân viên xác nhận</th>
+                    <th>Tình trạng đơn hàng</th>
+                    <th>Chi tiết</a></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                    $queryOrder = "select * from dathang";
+                    $resultOrder = mysqli_query($conn,$queryOrder);
+                    if(mysqli_num_rows($resultOrder) > 0){
+                        while($row = mysqli_fetch_assoc($resultOrder)){?>
+                        <tr style="color:#66FF99;">
+                            <td><?php echo $row['SoDonDH']?></td>
+                            <td><?php echo $row['MSNV']?></td>
+                            <td><?php echo $row['TrangThai']?></td>
+                            <td><button class="btn btn-outline-warning">Xem chi tiết</button></td>
+                        </tr>
+                 <?php  }
+                    }
+                ?>
+
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
