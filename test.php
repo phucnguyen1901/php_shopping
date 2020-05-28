@@ -29,3 +29,27 @@
 
 
 <?php include 'header.php' ?>
+
+                                                    <?php
+                                                    //chi tiet dat hang
+                                                    $SoDH = $row['SoDonDH'];
+                                                    $queryDetails = "select * from chitietdathang where SoDonDH = $SoDH";
+                                                    $resultDetails = mysqli_query($conn,$queryDetails);
+                                                    if(mysqli_num_rows($resultDetails) > 0){
+                                                        while($row2 = mysqli_fetch_assoc($resultDetails)){
+                                                            $MSHH = $row2['MSHH'];
+                                                            $queryGoods = "select * from hanghoa where MSHH = $MSHH";
+                                                            $resultqueryGoods = mysqli_query($conn,$queryGoods);
+                                                            if(mysqli_num_rows($resultqueryGoods) > 0){
+                                                                while($row3 = mysqli_fetch_assoc($resultqueryGoods)){?>
+                                                                    <tr>
+                                                                        <td><h3><?php echo $row3['TenHH']; ?></h3></td>
+                                                                        <td><h3><?php echo $row2['soluong']; ?></h3></td>
+                                                                    </tr>
+                                                        <?php 
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                        ?>        
+                                                    

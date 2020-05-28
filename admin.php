@@ -79,7 +79,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 <?php
                     $queryOrder = "select * from dathang";
                     $resultOrder = mysqli_query($conn,$queryOrder);
@@ -89,7 +88,73 @@
                             <td><?php echo $row['SoDonDH']?></td>
                             <td><?php echo $row['MSNV']?></td>
                             <td><?php echo $row['TrangThai']?></td>
-                            <td><button class="btn btn-outline-warning">Xem chi tiết</button></td>
+                            <td>
+                            <!-- <button class="btn btn-outline-warning">Xem chi tiết</button> -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#modelId">
+                            Xem chi tiết
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xác nhận đơn hàng</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table border="1px solid blue">
+                                                <tr>
+                                                    <td><h3>Họ tên KH</h3></td>
+                                                    <td><h3>nguyễn văn a</h3></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h3>Số điện thoại</h3></td>
+                                                    <td><h3></h3></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h3>Địa chỉ</h3></td>
+                                                    <td><h3></h3></td>
+                                                </tr>
+                                                </table>
+                                                <h3>Hàng hóa mua</h3>
+                                                <table>
+                                                <?php
+                                                    //chi tiet dat hang
+                                                    $SoDH = $row['SoDonDH'];
+                                                    $queryDetails = "select * from chitietdathang where SoDonDH = '$SoDH'";
+                                                    $resultDetails = mysqli_query($conn,$queryDetails);
+                                                    if(mysqli_num_rows($resultDetails) > 0){
+                                                        while($row2 = mysqli_fetch_assoc($resultDetails)){
+                                                            $MSHH = $row2['MSHH'];
+                                                            $queryGoods = "select * from hanghoa where MSHH = '$MSHH'";
+                                                            $resultqueryGoods = mysqli_query($conn,$queryGoods); ?>
+                                                            <tr>
+                                                    <?php   if(mysqli_num_rows($resultqueryGoods) > 0){
+                                                                while($row3 = mysqli_fetch_assoc($resultqueryGoods)){?>
+
+                                                                        <td><h3><?php echo $row3['TenHH']; ?></h3></td>
+                                                        <?php 
+                                                                }
+                                                            }?>
+                                                                <td><h3><?php echo $row2['Soluong']; ?></h3></td>
+                                                            </tr>
+                                                    <?php    }
+                                                    }
+                                                        ?>        
+                                            </table>
+                                            <h3 class="mt-3">Tổng tiền: <?php echo change_type_money($row['TongTien'])?></h3> 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                            <button type="button" class="btn btn-primary">Xác nhận đơn hàng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </td>
                         </tr>
                  <?php  }
                     }
