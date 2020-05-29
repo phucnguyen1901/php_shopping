@@ -37,7 +37,7 @@
 
 
 <div class="container-fuild">
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 			<a class="navbar-brand" href="index.php">
 				<img src="img/logo.jpg" alt="logo" style="width: 100px; height: 50px;">
 			</a>
@@ -67,7 +67,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Liên Hệ</a>
+						<a class="nav-link" href="contact.php">Liên Hệ</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="ordersearch.php">Tra đơn hàng</a>

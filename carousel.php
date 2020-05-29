@@ -6,7 +6,7 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">
-				<img src="img/Intro3.jpg" alt="First slide" class="img-responsive">
+				<img src="img/Intro3.jpg" alt="First slide" class="img-fluid">
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="img/carousel2.jpg" alt="Second slide" class="img-responsive">
+				<img src="img/carousel2.jpg" alt="Second slide" class="img-fluid">
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="img/husky.jpg" alt="Third slide" class="img-responsive">
+				<img src="img/husky.jpg" alt="Third slide" class="img-fluid">
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>

@@ -17,7 +17,7 @@
 						?>
                               <div class="col-sm-4">
                                              <form action="cart.php" method="POST">
-												<img src="<?php echo 'img/'.$row['Hinh'];?>" alt="" style="width: 300px; height: 200px;" class="img-responsive rounded-circle">
+												<img src="<?php echo 'img/'.$row['Hinh'];?>" alt="" style="width: 300px; height: 200px;" class="img-fluid rounded-circle">
 												<h3><?php echo $row['TenHH'];?></h3>
 												<h5 class="text-warning"><?php echo change_type_money($row['Gia']);?></h5>
 												<input type="text" class="form-control mb-3 d-inline-block" style="width:100px;" name="qty" value="1">

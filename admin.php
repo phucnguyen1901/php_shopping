@@ -69,7 +69,7 @@
     </div>
 
     .<div class="container">
-        <table class="table table-striped table-dark    ">
+        <table class="table table-striped table-dark table-responsive-sm" style="text-align:center;">
             <thead>
                 <tr class="text-primary">
                     <th>Số đơn hàng</th>
@@ -86,7 +86,14 @@
                         while($row = mysqli_fetch_assoc($resultOrder)){?>
                         <tr style="color:#66FF99;">
                             <td><?php echo $row['SoDonDH']?></td>
-                            <td><?php echo $row['MSNV']?></td>
+                            <td><?php 
+                                    if($row['MSNV']==NULL){
+                                        echo "Chưa có nhân viên xác nhận";
+                                    }else{
+                                        echo "Mã số : ".$row['MSNV'];
+                                    }
+                                ?>
+                            </td>
                             <td><?php echo $row['TrangThai']?></td>
                             <td><input type="button" class="view_data btn btn-outline-primary" name="<?php echo $row['SoDonDH'];?>" value="Xem chi tiết" id="<?php echo $row['MSKH'];?>"></td>
                 <?php
@@ -109,16 +116,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-            <div class="modal-body" id="orders_Details">
-                Body
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <form action="admin.php" method="post">
-                    <button type="submit" class="btn btn-primary">Xác nhận</button>
-                    <!-- <input type="submit" value="Xác nhận"> -->
-                </form>
-            </div>
+            <form action="handlingAdmin.php" method="post">
+                <div class="modal-body" id="orders_Details">
+                    Body
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary" name="confirm">Xác nhận</button>
+                        <!-- <input type="submit" value="Xác nhận"> -->
+                </div>
+            </form>
         </div>
     </div>
 </div>

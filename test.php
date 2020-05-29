@@ -118,3 +118,5 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                "img-responsive rounded-circle"

@@ -14,8 +14,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
 
@@ -73,8 +73,8 @@
 
         ?>
 
-        <div class="container" style="margin-top:100px;">
-        <table class="table table-bordered table-dark">
+        <div class="container" style="margin-top:150px;">
+        <table class="table table-bordered table-dark table-responsive-sm">
             <thead>
                 <tr>
                 <th>Tên chó</th>
@@ -128,25 +128,33 @@
             if(isset($_SESSION['login'])){ ?>
             <div class="container" style="text-align:center; margin-top:30px;">
                 <form action="notification.php" method="post" style="padding: 20px;">
-                <label for="" style="width: 700px;" class="mt-3">Họ tên Khách Hàng:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['fullname']);?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_name" placeholder="Họ tên khách hàng" value="<?php echo processNameUser($_SESSION['login'][0]['fullname']);?>">
-                <br>
-                <label for="" style="width: 700px;" class="mt-3">Số điện thoại:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['numberphone']) ?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_numberphone" placeholder="Nhập số điện thoại" value="<?php echo processNameUser($_SESSION['login'][0]['numberphone']);?>">
-                <br>
-                <label for="" style="width: 700px;" class="mt-3">Địa chỉ: <span class="text-danger"><?php echo processNameUser($_SESSION['login'][0]['address']) ?></span> </label>
-                <input type="hidden" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_address" placeholder="Địa chỉ" value="<?php echo processNameUser($_SESSION['login'][0]['address']);?>"><br>
-                    <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
-                    <span class="text-danger">
-                        <?php 
-                            if($total!=0){
-                                echo change_type_money((string)$total); 
-                            } 
-                        ?>
-                    </span>
-                <input type="hidden" name="totalamount" value="<?php echo $total; ?>">
-                    <br> 
-                    <input type="submit" value="Đặt hàng ngay" class="btn btn-success" name="insert_database">
+                    <div class="form-group">
+                        <label for="" style="width: auto;" class="mt-3">Họ tên Khách Hàng:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['fullname']);?></span> </label>
+                        <input type="hidden" class="form-control mb-3 d-inline-block" name="insert_name" placeholder="Họ tên khách hàng" value="<?php echo processNameUser($_SESSION['login'][0]['fullname']);?>">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="width: auto;" class="mt-3">Số điện thoại:<span class="text-danger"> <?php echo processNameUser($_SESSION['login'][0]['numberphone']) ?></span> </label>
+                        <input type="hidden" class="form-control mb-3 d-inline-block" name="insert_numberphone" placeholder="Nhập số điện thoại" value="<?php echo processNameUser($_SESSION['login'][0]['numberphone']);?>">
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="width: auto;" class="mt-3">Địa chỉ: <span class="text-danger"><?php echo processNameUser($_SESSION['login'][0]['address']) ?></span> </label>
+                        <input type="hidden" class="form-control mb-3 d-inline-block" name="insert_address" placeholder="Địa chỉ" value="<?php echo processNameUser($_SESSION['login'][0]['address']);?>"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
+                    </div>
+                        <span class="text-danger">
+                            <?php 
+                                if($total!=0){
+                                    echo change_type_money((string)$total); 
+                                } 
+                            ?>
+                        </span>
+                    <input type="hidden" name="totalamount" value="<?php echo $total; ?>">
+                        <br> 
+                        <input type="submit" value="Đặt hàng ngay" class="btn btn-success mt-1" name="insert_database">
                 </form>
             </div>
             <div style="margin-top:158px;"></div>
@@ -157,16 +165,24 @@
         </div>
         <div class="container" style="text-align:center; margin-top:20px;">
             <form action="notification.php" method="post" style="padding: 20px;">
-                <label for="" style="width: 150px;" class="mt-3">Họ tên:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_name" placeholder="Họ tên khách hàng">
-                <br>
-                <label for="" style="width: 150px;" class="mt-3">Số điện thoại:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_numberphone" placeholder="Nhập số điện thoại">
-                <br>
-                <label for="" style="width: 150px;" class="mt-3">Địa chỉ:</label>
-                <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="insert_address" placeholder="Địa chỉ">
-                <br>
-                <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
+                <div class="form-group">
+                    <label for="" style="width: 150px;" class="mt-3">Họ tên:</label>
+                    <input type="text" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_name" placeholder="Họ tên khách hàng">
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="" style="width: 150px;" class="mt-3">Số điện thoại:</label>
+                    <input type="text" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_numberphone" placeholder="Nhập số điện thoại">
+                    <br>
+                </div>
+                    <div class="form-group">
+                    <label for="" style="width: 150px;" class="mt-3">Địa chỉ:</label>
+                    <input type="text" class="form-control mb-3 d-inline-block" style="width:300px;" name="insert_address" placeholder="Địa chỉ">
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="" style="width: 150px;" class="mt-3">Tổng tiền:</label> 
+                </div>
                 <span class="text-danger">
                     <?php 
                         if($total!=0){
@@ -177,6 +193,7 @@
                 <input type="hidden" name="totalamount" value="<?php echo $total; ?>">
                 <br>
                 <input type="submit" value="Đặt hàng ngay" class="btn btn-success" name="insert_database">
+                </div>
                 </form>
             </div>
        <?php } ?>
@@ -187,6 +204,6 @@
             // var_dump($_SESSION['cart']);
             // print_r($_SESSION['cart']);
         ?>
-    	<?php include 'footer.php' ?>	
+
 </body>
 </html>

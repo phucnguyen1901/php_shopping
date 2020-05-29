@@ -45,11 +45,11 @@
         $querySumMoney = "select SUM(GiaDatHang*Soluong) from chitietdathang inner join hanghoa on
         chitietdathang.MSHH=hanghoa.MSHH where chitietdathang.SoDonDH=$SodonDH";
         $resultSumMoney = mysqli_query($conn,$querySumMoney);
-        $rowSumMoney = mysqli_fetch_assoc($resultSumMoney);
+        $rowSumMoney = mysqli_fetch_assoc($resultSumMoney); // tinh tong so tien
 
-        $queryOrderDetails = "select * from chitietdathang inner join hanghoa on 
+        $queryOrderDetails = "select * from chitietdathang inner join hanghoa on  
         chitietdathang.MSHH=hanghoa.MSHH where SoDonDH=$SodonDH";
-        $resultOrderDetails = mysqli_query($conn,$queryOrderDetails);
+        $resultOrderDetails = mysqli_query($conn,$queryOrderDetails);  // show ten , sdt , dia chi khach hang
         if(mysqli_num_rows($resultOrderDetails) > 0){
             while($row2 = mysqli_fetch_assoc($resultOrderDetails)){
                 $output.= '
@@ -61,9 +61,10 @@
             }
         }
         $output .='</table></div>
+            <input type="hidden" name="SodonDH" value="'.$SodonDH.'">
             <div class="form-group">
                 <label for=""><h4>Trạng thái đơn hàng</h4></label>
-                <select class="form-control" name="" id="">
+                <select class="form-control" name="choose_status">
                     <option>Chưa xác nhận</option>
                     <option>Đã xác nhận</option>
                     <option>Đang chuyển hàng</option>

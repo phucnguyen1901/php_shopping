@@ -65,9 +65,7 @@
         </div>
         <div  id='error'></div>
         <!-- <div style="height:520px; color:red"></div> -->
-    <?php include 'footer.php' ?>		
     <!-- <script src="js/cart.js"></script> -->
-        
     <script src="js/cart.js"></script>
 </body>
 </html>
