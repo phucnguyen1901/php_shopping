@@ -1,3 +1,7 @@
+
+<!-- Admin bấm vào xem chi tiết sẽ hiển thị thông tin do trang này xử lý -->
+
+
 <?php 
 	include_once 'condb.php';
 	include_once 'change_type_money.php'

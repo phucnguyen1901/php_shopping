@@ -7,7 +7,7 @@
     $notify = '';
 
     session_start();
-    if(isset($_SESSION['cart']) && isset($_POST['insert_database'])){ // Neu ton tai cart va post insert
+    if(isset($_SESSION['cart']) && isset($_POST['insert_database'])){ // Nếu tồn tại cart va post insert
         if(isset($_SESSION['login'])){                              // kiểm tra người dùng có đăng nhập
             $MSKH = (int)processNameUser($_SESSION['login'][0]['id_user']);
             $totalamount = $_POST['totalamount']; // Tổng tiền
@@ -25,7 +25,7 @@
             }
             $notify = "Đặt hàng thành công <br>Họ tên:  ".processNameUser($_SESSION['login'][0]['fullname']).'<br> Số điện thoại: '.processNameUser($_SESSION['login'][0]['numberphone']).'<br> Địa chỉ: '.processNameUser($_SESSION['login'][0]['address']);
         }else{
-            // nếu số điện thoại có trong cơ sở dữ liệu
+            // nếu số điện thoại có trong cơ sở dữ liệu thì không cần thêm khách hàng mới
             $numberphoneCheck = $_POST['insert_numberphone'];
             $queryKH = "select * from khachhang where sodienthoai='$numberphoneCheck'";
             $resultCheck = mysqli_query($conn,$queryKH);

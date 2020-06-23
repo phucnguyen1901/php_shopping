@@ -1,3 +1,6 @@
+
+<!-- Kết nối database -->
+
 <?php 
 	
 	$servername = "localhost:3307";

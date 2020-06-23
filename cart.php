@@ -1,3 +1,6 @@
+
+<!-- Giỏ hàng -->
+
 <?php 
 	include_once 'condb.php';
 	include_once 'change_type_money.php'
@@ -17,50 +20,60 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
-<body>
+<body onload="document.transferForm.submit()">
 
     <?php include 'header.php' ?>
         <?php
             $total = 0;
             // session_destroy();
+            // if(isset($_POST['qty']) < 1){
+            //     echo '<script> alert("Số lượng không hợp lệ)</script>';
+            // }
             if(isset($_POST["add"])){
-
-                if(isset($_SESSION['cart'])){
-                    $item_arr_id = array_column($_SESSION['cart'],'product_id');
-                    if(!in_array($_POST['id_product'],$item_arr_id)){
-                        if(session_id() == '') {
-                            session_start();
-                        }                        
-                        $count = count($_SESSION['cart']);
-                        $item_arr = array(
-                            'product_id' => $_POST['id_product'],
-                            'cartname' => $_POST['namecart'],
-                            'price_session' => $_POST['price'],
-                            'qty' => $_POST['qty']
-                        );
-                        $_SESSION['cart'][$count] = $item_arr;
-                    }else{
-                        $count2 = 0;
-                        foreach($_SESSION['cart'] as $key => $value){
-                            if($value['product_id'] == $_POST['id_product']){
-                                $receiveKey = $count2;
-                                $_SESSION['cart'][$receiveKey]['qty'] += $_POST['qty']; 
-                                break;
+                if($_POST['qty'] < 1){
+                    echo '<form action="index.php" name="transferForm" method="post">
+                            <input type="hidden" name="error" value="1">;
+                          </form>';
+                }else{
+                    if(isset($_SESSION['cart'])){
+                        $item_arr_id = array_column($_SESSION['cart'],'product_id');
+                        if(!in_array($_POST['id_product'],$item_arr_id)){
+                            if(session_id() == '') {
+                                session_start();
+                            }                        
+                            $count = count($_SESSION['cart']);
+                            $item_arr = array(
+                                'product_id' => $_POST['id_product'],
+                                'cartname' => $_POST['namecart'],
+                                'price_session' => $_POST['price'],
+                                'qty' => $_POST['qty']
+                            );
+                            $_SESSION['cart'][$count] = $item_arr;
+                        }else{
+                            $count2 = 0;
+                            foreach($_SESSION['cart'] as $key => $value){
+                                if($value['product_id'] == $_POST['id_product']){
+                                    $receiveKey = $count2;
+                                    $_SESSION['cart'][$receiveKey]['qty'] += $_POST['qty']; 
+                                    break;
+                                }
+                                $count2 += 1;
                             }
-                            $count2 += 1;
-                        }
-                     }
+                         }
+                        
+                }else{
+                            $item_arr = array(
+                                'product_id' => $_POST['id_product'],
+                                'cartname' => $_POST['namecart'],
+                                'price_session' => $_POST['price'],
+                                'qty' => $_POST['qty'] 
+                            );
+                            $_SESSION['cart'][0] = $item_arr;
                     
-            }else{
-                        $item_arr = array(
-                            'product_id' => $_POST['id_product'],
-                            'cartname' => $_POST['namecart'],
-                            'price_session' => $_POST['price'],
-                            'qty' => $_POST['qty'] 
-                        );
-                        $_SESSION['cart'][0] = $item_arr;
-                
+                    }
+
                 }
+
             }
 
             if(isset($_GET['delete'])){
@@ -151,6 +164,7 @@
                                     echo change_type_money((string)$total); 
                                 } 
                             ?>
+                            <br>
                         </span>
                     <input type="hidden" name="totalamount" value="<?php echo $total; ?>">
                         <br> 
@@ -189,6 +203,7 @@
                             echo change_type_money((string)$total); 
                         } 
                     ?>
+                    <br>
                 </span>
                 <input type="hidden" name="totalamount" value="<?php echo $total; ?>">
                 <br>
@@ -204,6 +219,9 @@
             // var_dump($_SESSION['cart']);
             // print_r($_SESSION['cart']);
         ?>
+        <script>
+            document.getElementById("myForm").submit();
+        </script>
 
 </body>
 </html>

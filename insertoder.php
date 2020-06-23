@@ -1,4 +1,7 @@
 
+
+<!-- Thêm vào bảng khách hàng xong rồi thêm vào bảng dathang , rồi thêm vào bảng chi tiết chitietdathang -->
+
 <?php 
 	include_once 'condb.php';
     include_once 'change_type_money.php'

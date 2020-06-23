@@ -1,10 +1,6 @@
 
 
-
-
-
-
-
+<!-- Trang đăng ký khách hàng -->
 
 
 <?php 
@@ -41,15 +37,15 @@
             <span id="errorfullname"></span>
             <br>
             <label for="">Tên đăng nhập</label> 
-            <input type="text" class="form-control" name="username">
+            <input type="text" class="form-control" name="username" id="username">
             <span id="errorusername"></span>
             <br>
             <label for="">Mật khẩu</label> 
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" id="password">
             <span id="errorpassword"></span>
             <br>
             <label for="">Nhập lại mật khẩu</label> 
-            <input type="password" class="form-control" name="repeatpassword">
+            <input type="password" class="form-control" name="repeatpassword" id="repeatpassword">
             <span id="repeatpassword"></span>
             <br>
             <label for="">Địa chỉ</label> 
@@ -57,7 +53,7 @@
             <span id="erroremail"></span>
             <br>
             <label for="">Số điện thoại</label> 
-            <input type="text" class="form-control" name="numberphone">
+            <input type="text" class="form-control" name="numberphone" id="numberphone">
             <span id="errornumberphone"></span>
             <br>
             <button type="submit" value="Đăng ký" class="btn btn-success" name="register" onclick="register()">Đăng ký</button>
@@ -66,7 +62,7 @@
         <div  id='error'></div>
         <!-- <div style="height:520px; color:red"></div> -->
     <!-- <script src="js/cart.js"></script> -->
-    <script src="js/cart.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
 

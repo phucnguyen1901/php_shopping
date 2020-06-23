@@ -1,3 +1,7 @@
+
+<!-- Trang quản lí của admin -->
+
+
 <?php 
     include_once 'condb.php';
     include_once 'change_type_money.php'

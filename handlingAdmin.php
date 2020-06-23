@@ -1,3 +1,7 @@
+
+<!-- Admin cập nhật lại trạng thái đơn hàng -->
+
+
 <?php 
 	include_once 'condb.php';
 	include_once 'change_type_money.php'

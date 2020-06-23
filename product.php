@@ -1,3 +1,7 @@
+
+<!-- Hiển thị tất cả sản phẩm ra trang chủ -->
+
+
 <div class="container" id="content">
 		<div id="pag" class="mt-3">
 			<ul class="pagination pagination-sm">
@@ -24,7 +28,7 @@
 												<input type="hidden" class="form-control mb-3 d-inline-block" style="width:100px;" name="price" value="<?php echo change_type_money($row['Gia']);?>">
 												<input type="hidden" class="form-control mb-3 d-inline-block" style="width:100px;" name="namecart" value="<?php echo $row['TenHH'];?> ">
 												<input type="hidden" class="form-control mb-3 d-inline-block" style="width:100px;" name="id_product" value="<?php echo $row['MSHH'];?> ">
-												<button type="submit" name="add" class="btn btn-success mb-1">Mua Ngay</button>
+												<button type="submit" name="add" class="btn btn-success mb-1" onclick="save()">Mua Ngay</button>
 												<!-- <button class="btn btn-warning ">Thêm vào giỏ hàng</button> -->
                                             </form>
                                 </div>

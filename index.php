@@ -3,6 +3,16 @@
 	include_once 'change_type_money.php'
  ?>
 
+<?php
+
+	if(isset($_POST['error'])){
+		echo '<script> alert("Số lượng mua phải lớn hơn 0") </script>';
+	}
+
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +37,7 @@
 
 	<?php include 'footer.php' ?>					
 
-
+<script src="./js/checkCount.js"></script>
 
 </body>
 </html>
