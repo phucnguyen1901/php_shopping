@@ -18,19 +18,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/home.css">
 </head>
-<body onload="document.transferForm.submit()">
+<body <?php if(isset($_POST['qty']) && $_POST['qty'] < 1) echo 'onload="document.transferForm.submit()"';?>>
 
     <?php include 'header.php' ?>
         <?php
             $total = 0;
-            // session_destroy();
-            // if(isset($_POST['qty']) < 1){
-            //     echo '<script> alert("Số lượng không hợp lệ)</script>';
-            // }
             if(isset($_POST["add"])){
                 if($_POST['qty'] < 1){
+
                     echo '<form action="index.php" name="transferForm" method="post">
                             <input type="hidden" name="error" value="1">;
                           </form>';
@@ -219,9 +216,6 @@
             // var_dump($_SESSION['cart']);
             // print_r($_SESSION['cart']);
         ?>
-        <script>
-            document.getElementById("myForm").submit();
-        </script>
 
 </body>
 </html>

@@ -1,3 +1,13 @@
+
+
+<!-- Xử lý đặt hàng khi khách hàng nhấn nút đặt hàng bao gồm :
+    + insert khách hàng mới nếu khách hàng không đăng nhập sau đó insert vào bảng đăt hàng rồi tiếp tục insert vào chitietdathang
+    + nếu khách hàng đã đăng nhập thì không cần insert khách hàng , chỉ insert dathang và chitietdathang
+    + nếu khách hàng không đăng nhập mà số điện thoại đã có trong bảng khách hàng thì sẽ insert đặt hàng dựa trên 
+    thông tin đã có trong bảng khách hàng
+-->
+
+
 <?php 
 	include_once 'condb.php';
 	include_once 'change_type_money.php'

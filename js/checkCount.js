@@ -10,15 +10,6 @@ function save(){
     }else{
         alert("OK");
     }
-
-
-    // if(count == 1 ){
-    //     let a = 1
-    //     onSubmit();
-    // }else{
-    //     onSubmit(0)
-    // }
-
 }
 
 

@@ -68,7 +68,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/home.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
 </head>
 <body>
@@ -80,7 +80,7 @@
                 echo '<h2 style="margin-top:300px; text-align:center;"><a href="index.php" class="btn btn-success">Quay lại trang chủ ngay</a></h2>';
             }else{
     ?>
-            <div class="container" style="margin-top:100px; width:400px;">
+            <div class="container" style="margin-top:100px; width:350px;">
                 <form action="" method="POST">
                     <label for="">Tên đăng nhập</label> 
                     <input type="text" class="form-control" name="username">
@@ -97,7 +97,5 @@
 
         <div  id='error'></div>
     <!-- <script src="js/cart.js"></script> -->
-    <script src="js/checkFormNvLogin.js"></script>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-		//Hàm tự viết để xử lý nhu cầu 
+		//Các hàm tự viết để xử lý nhu cầu cần thiết
 
 	    function change_type_money($str){ // hàm thêm dấu chấm vào vào tiền tệ ví dụ : 100000 => 100.000
     		$count = 0;

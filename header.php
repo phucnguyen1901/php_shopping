@@ -1,4 +1,6 @@
 
+<!-- Menu -->
+
 <?php 
 	include_once 'condb.php';
 	include_once 'change_type_money.php'
@@ -84,7 +86,7 @@
 								<button type="submit" name="out" class="btn btn-warning">Đăng Xuất</button>
 							</form>
 						<?php }else{
-								echo '<a href="registeruser.php" class="btn btn-warning mr-2">Đăng Ký</a>
+								echo '<a href="register.php" class="btn btn-warning mr-2">Đăng Ký</a>
 									 <a href="login.php" class="btn btn-warning">Đăng Nhập</a>';
 							}?>
 

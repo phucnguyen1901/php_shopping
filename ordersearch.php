@@ -19,7 +19,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/home.css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 	<?php include 'header.php' ?>	
     <div class="container" style="margin-top:150px; height:400px; ">
         <form action="ordersearch.php" method="post">
-            <input type="text" class="form-control mb-3 d-inline-block" style="width:500px;" name="sdt" placeholder="Nhập số điện thoại">
+            <input type="text" class="form-control mb-3 d-inline-block" style="width:auto;" name="sdt" placeholder="Nhập số điện thoại">
             <input type="submit" class="btn btn-success mb-1" value="Kiểm tra" name="checknumberphone">
         </form>
 

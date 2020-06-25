@@ -13,7 +13,7 @@
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>
-					<a href="#content"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
+					<a href="#positionProduct"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -21,7 +21,7 @@
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>
-					<a href="#content"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
+					<a href="#positionProduct"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -29,7 +29,7 @@
 				<div class="carousel-caption d-none d-md-block">
 					<h2>Shopping-Dog</h2>
 					<p>Người bạn của bạn</p>
-					<a href="#content"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
+					<a href="#positionProduct"><button class="btn btn-warning btn-lg">Xem Ngay</button></a>
 				</div>
 			</div>
 		</div>
