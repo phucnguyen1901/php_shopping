@@ -39,42 +39,62 @@
 </div>
 
 <?php 
+    $notify = '';
+    $price = '';
+
+    $queryStatisticalProduct = "select hanghoa.TenHH,D.TongGiaDatHang from hanghoa inner join (select B.mshh,B.TongGiaDatHang from (select mshh , sum(GiaDatHang) as TongGiaDatHang from chitietdathang GROUP BY MSHH) B 
+    where B.TongGiaDatHang = (select max(C.TongGiaDatHang) from (select mshh , sum(GiaDatHang) as TongGiaDatHang from chitietdathang GROUP BY MSHH) C)) D where hanghoa.MSHH = D.MSHH";
+
+    $resultStatisticalProduct = mysqli_query($conn,$queryStatisticalProduct);
+    $totalStatisticalProduct = mysqli_fetch_assoc($resultStatisticalProduct);
+    
+    if(mysqli_num_rows($resultStatisticalProduct) > 0){
+        $notify = $totalStatisticalProduct['TenHH'];
+        $price = $totalStatisticalProduct['TongGiaDatHang'];
+    }
+
+    // Thống kê theo tháng
     if(isset($_GET['month']) && isset($_GET['year'])){
+
         $month = (int)$_GET['month'];
         $year = (int)$_GET['year'];
         $queryStatistical= "select sum(TongTien) as total from dathang where month(ngayDH)=($month) and year(ngayDH)=($year)";
         $resultStatistical = mysqli_query($conn,$queryStatistical);
         $totalStatistical = mysqli_fetch_assoc($resultStatistical);
-        
-        // echo $month.'/'.$year;
+
+        if($totalStatistical['total'] != NULL){
+            if(isset($_GET['month']) && isset($_GET['year'])){?>
+                <div class="container">
+                <table class="table table-striped table-dark table-responsive-sm" style="text-align:center;">
+                    <thead>
+                        <tr class="text-primary">
+                            <th>Tháng/Năm</th>
+                            <th>Doanh thu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td class="text-warning" rowspan="2"><?php echo $month.'/'.$year;?></td>
+                                <td class="text-warning"><?php echo change_type_money($totalStatistical['total']); ?></td>
+                            </tr>
+                    </tbody>
+                </table>
+                <br><br>
+            </div>
+            
+    
+        <?php }
+        } else{
+            echo '<div class="container">
+                    <h3 class="text-danger">Tháng này không có thống kê</h3>
+                </div>
+                ';
+        }
     }
-
 ?>
-
-<?php
-    if(isset($_GET['month']) && isset($_GET['year'])){?>
-        <div class="container">
-        <table class="table table-striped table-dark table-responsive-sm" style="text-align:center;">
-            <thead>
-                <tr class="text-primary">
-                    <th>Tháng/Năm</th>
-                    <th>Doanh thu</th>
-                    <th>Sản phẩm bán nhiều nhất</th>
-                    <th>Sản phẩm bán ít nhất</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                    <tr>
-                        <td rowspan="2"><?php echo $month.'/'.$year;?></td>
-                        <td><?php echo change_type_money($totalStatistical['total']); ?></td>
-                        <td>b</td>
-                        <td>c</td>
-                    </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <h3 class="text-success">Sản phẩm bán chạy nhất từ trước tới giờ: <?php echo $notify.' - '.change_type_money($price).'VND'; ?> </h3>
     </div>
-    <?php } ?>
-
 </body>
 </html>
         

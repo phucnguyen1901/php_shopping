@@ -24,6 +24,11 @@
 
     <?php include 'header.php' ?>
         <?php
+            
+            if(session_id() === '') {
+                session_start();
+            }         
+        
             $total = 0;
             if(isset($_POST["add"])){
                 if($_POST['qty'] < 1){
@@ -35,9 +40,9 @@
                     if(isset($_SESSION['cart'])){
                         $item_arr_id = array_column($_SESSION['cart'],'product_id');
                         if(!in_array($_POST['id_product'],$item_arr_id)){
-                            if(session_id() == '') {
-                                session_start();
-                            }                        
+                            // if(session_id() == '') {
+                            //     session_start();
+                            // }                        
                             $count = count($_SESSION['cart']);
                             $item_arr = array(
                                 'product_id' => $_POST['id_product'],
@@ -131,7 +136,7 @@
         </table>
         </div>
         <div class="container" style="text-align:center; margin-top:20px;">
-            <a href="index.php#content" class="btn btn-success">Tiếp tục mua hàng</a>
+            <a href="index.php#positionProduct" class="btn btn-success">Tiếp tục mua hàng</a>
         </div>
 
         <?php

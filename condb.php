@@ -3,7 +3,7 @@
 
 <?php 
 	
-	$servername = "localhost:3307";
+	$servername = "localhost:3307"; // Máy em port 3307 , máy thầy port 3306 thì sửa lại dùm em
 	$username   = "root";
 	$password	= "";
 	$database   = "shoppingdog";

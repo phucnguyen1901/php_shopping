@@ -1,3 +1,4 @@
+
 <?php 
 		//Các hàm tự viết để xử lý nhu cầu cần thiết
 

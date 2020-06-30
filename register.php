@@ -43,7 +43,6 @@
             <br>
             <label for="">Mật khẩu</label> 
             <input type="password" class="form-control" name="password" id="password">
-            <span id="errorpassword"></span>
             <br>
             <br>
             <label for="">Nhập lại mật khẩu</label> 
@@ -53,7 +52,6 @@
             <br>
             <label for="">Địa chỉ</label> 
             <input type="text" class="form-control" name="address">
-            <span id="erroremail"></span>
             <br>
             <br>
             <label for="">Số điện thoại</label> 

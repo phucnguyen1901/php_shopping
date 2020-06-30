@@ -12,11 +12,14 @@
     //     session_start();
     //     header("Location: ./index.php");
     // }
+    // session_start();
     if(isset($_POST['login'])){
         if(isset($_SESSION['login'])){
             header("Location: ./index.php");
         }else{
-            session_start();
+            if(session_id() === '') {
+                session_start();
+            }       
             $username = $_POST['username'];
             $passwd = $_POST['passwd'];
             $queryUser = "select * from khachhang where username='$username' and passwd='$passwd'";
